@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,15"
+            Spacing="15">
+
+            <Label
+                Text="Конвертер валют"
+                FontFamily="Helvetica"
+                FontAttributes="Bold"
+                TextColor="#512BD4"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+            
+            <Grid RowSpacing="5" ColumnSpacing="5" RowDefinitions="*,*,*,*" ColumnDefinitions="*,Auto">
+
+                <Frame Padding="0" BorderColor="#512BD4">
+                    <Entry x:Name="ValueToConvert" Grid.Row="0" Grid.Column="0" Placeholder="Введіть суму"/>
+                </Frame>
+                    <Picker x:Name="CurrencyPicker1"
+                        Grid.Row="0" Grid.Column="1"
+                        ItemsSource="{Binding ObservableCollectionOfCurrencies}"
+                        ItemDisplayBinding="{Binding cc}"
+                        SelectedIndexChanged="CurrencyPicker1_SelectedIndexChanged"/>
+
+                <Entry x:Name="Result" Grid.Row="1" Grid.Column="0" IsReadOnly="True" Placeholder="Результат"/>
+                <Picker x:Name="CurrencyPicker2"
+                        Grid.Row="1" Grid.Column="1"
+                        ItemsSource="{Binding ObservableCollectionOfCurrencies}"
+                        ItemDisplayBinding="{Binding cc}"
+                        SelectedIndexChanged="CurrencyPicker2_SelectedIndexChanged"/>
+
+                <Button Grid.Row="2" Grid.Column="0" Text="Конвертувати" Clicked="OnButtonClicked"/>
+                <Button Grid.Row="2" Grid.Column="1" Text="⇄" BackgroundColor="#9880e5" Clicked="SwapCurrencies"/>
+            </Grid>
+            
+            <Grid ColumnDefinitions="*,*">
+                <Label x:Name="CurrencyInfo1"
+                       Grid.Column="0"
+                       Text="Оберіть валюту, щоб побачити опис"
+                       VerticalOptions="Center"
+                       TextColor="Gray"
+                       FontAttributes="Italic"
+                       Padding="5,0,0,0"/>
+                <Label x:Name="CurrencyInfo2"
+                       Grid.Column="1"  
+                       Text="Оберіть валюту, щоб побачити опис"
+                       VerticalOptions="Center"
+                       TextColor="Gray"
+                       FontAttributes="Italic"
+                       Padding="5,0,0,0"/>
+            </Grid>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
