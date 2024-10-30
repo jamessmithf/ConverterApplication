@@ -17,7 +17,7 @@ Built with a clean, minimalist design, the interface features intuitive controls
 Includes tooltips that provide additional details for each currency when hovering over a selection.
 Swap Functionality:
 
-An added "⇄" button allows users to swap the selected input and output currencies with a single tap, enhancing usability and saving time.
+An added "⇅" button allows users to swap the selected input and output currencies with a single tap, enhancing usability and saving time.
 Technical Highlights
 Data Binding with MAUI: The currency data is loaded into an ObservableCollection and bound to the currency pickers, ensuring efficient data handling and UI updates.
 API Integration: Utilizes the .NET HttpClient and JSON deserialization to process currency data from the API.
